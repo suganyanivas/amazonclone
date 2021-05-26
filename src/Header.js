@@ -3,8 +3,17 @@ import './Header.css'
 import {Link} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { useStateValue } from './StateProvider';
+import { auth } from "./firebase";
 
 function Header() {
+    const [{basket,user},dispatch] =useStateValue();
+    const handleAuthentication =() => {
+        if(user){
+            auth.signOut();
+        }
+
+    }
     return(
          <nav className="header">
     {/*logo on the left->img  */}
@@ -22,10 +31,10 @@ function Header() {
     {/* 3 links*/}
             <div className="header__navbar">
                 {/*1st link */}
-                <Link to="/login" className="header__link">
-                <div className="header__option">
-                    <span className="optionLineOne"> Hello Guest</span>
-                    <span className="optionLineTwo">Sign In</span>
+                <Link to={ !user && '/login'} className="header__link">
+                <div onClick={handleAuthentication} className="header__option">
+                    <span className="optionLineOne"> Hello {!user? 'Guest': user.email}</span>
+                    <span className="optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
                 </div>
                  </Link>
                  {/*second Link*/}
