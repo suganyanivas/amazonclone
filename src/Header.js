@@ -52,12 +52,18 @@ function Header() {
 
                 </div>
                 </Link>
+                {/* basket with counts */}
+                <Link to="/checkout">
+          <div className="header__optionBasket">
+            <ShoppingBasketIcon />
+            <span className="header__optionLineTwo header__basketCount">
+              {basket?.length}
+            </span>
+          </div>
+        </Link>
             </div>
-            {/* basket with counts */}
-            <div className="header_basketicon">
-                <ShoppingBasketIcon />
-                <span className="optionLineTwo basketCount">0</span>
-            </div>
+            
+           
             
         </nav>
     );
