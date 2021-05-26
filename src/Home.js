@@ -15,7 +15,8 @@ function Home() {
             {/*product1*/}
             <Product 
             id="121"
-            title="Rich Dad Poor Dad"
+            title="Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!"
+           
             price={100}
             rating={5}
          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBskXvZvdmJcCWTvE84JlzQgI6oxlbSzvSgg&usqp=CAU" /> 
